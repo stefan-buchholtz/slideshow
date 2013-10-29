@@ -10,12 +10,17 @@
 
 @class SSImageBrowserWindow;
 
-@interface SSWindowManager : NSObject
+@interface SSWindowManager : NSObject <NSWindowRestoration>
 
 @property (strong) NSMutableArray *imageBrowsers;
 
 - (SSImageBrowserWindow*)openImageBrowserWithBaseDirectoryURL:(NSURL*)baseDirectory;
 
 - (void)removeImageBrowser:(SSImageBrowserWindow*)imageBrowser;
+
++ (SSWindowManager*)mainWindowManager;
+
+// handle window restoration
++ (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler;
 
 @end

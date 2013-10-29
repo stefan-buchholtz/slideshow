@@ -19,6 +19,8 @@
 
 @interface SSImageBrowserWindow ()
 
+- (void)baseDirectoryChanged;
+
 - (void)setWindowTitle;
 
 - (void)loadImageDirectoryTreeAsync;
@@ -37,32 +39,54 @@
 
 @implementation SSImageBrowserWindow
 
-- (id)initWithBaseDirectoryURL:(NSURL *)baseDirectoryURL {
-    if (self = [super initWithWindowNibName:@"SSImageBrowserWindow"]) {
-        self.baseDirectoryURL = baseDirectoryURL;
-    }
+- (id)init {
+    self = [super initWithWindowNibName:@"SSImageBrowserWindow"];
     return self;
 }
 
 - (void)windowDidLoad {
+    NSLog(@"windowDidLoad");
     [super windowDidLoad];
     
-    [self setWindowTitle];
+    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"dummyImg" ofType: @"png"];
+    [self displayImageURL:[NSURL fileURLWithPath: dummyImagePath]];
+}
+
+- (void)awakeFromNib {
+    NSLog(@"awakeFromNib");
     
-    [self.spinner startAnimation:self];
-    [self loadImageDirectoryTreeAsync];
-    
+    self.window.restorable = YES;
+    self.window.restorationClass = [SSWindowManager class];
+    self.window.identifier = ID_IMAGE_BROWSER;
+
     self.directoryContentsView.cellsStyleMask = IKCellsStyleShadowed | IKCellsStyleTitled;
     self.directoryContentsView.allowsMultipleSelection = YES;
     self.directoryContentsView.allowsEmptySelection = YES;
     self.directoryContentsView.allowsReordering = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageViewFrameChanged:) name:NSViewFrameDidChangeNotification object:self.imageView];
 }
 
-- (void)awakeFromNib {
-    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"dummyImg" ofType: @"png"];
-    [self displayImageURL:[NSURL fileURLWithPath: dummyImagePath]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageViewFrameChanged:) name:NSViewFrameDidChangeNotification object:self.imageView];
-    [self.window zoom:self];
+- (void)baseDirectoryChanged {
+    if ( !self.window ) {
+        NSLog(@"SSImageBrowserWindow: setting baseDirectoryURL before initialization complete");
+        return;
+    }
+    if ( self.baseDirectoryURL ) {
+        [self loadImageDirectoryTreeAsync];
+        [self setWindowTitle];
+    }
+}
+
+- (void)setBaseDirectoryURL:(NSURL *)baseDirectoryURL {
+    if ( _baseDirectoryURL != baseDirectoryURL ) {
+        _baseDirectoryURL = baseDirectoryURL;
+        [self baseDirectoryChanged];
+    }
+}
+
++ (NSArray *)restorableStateKeyPaths {
+    return @[ @"baseDirectoryURL" ];
 }
 
 #pragma mark private methods
@@ -72,6 +96,8 @@
 }
 
 - (void)loadImageDirectoryTreeAsync {
+    NSLog(@"loadImageDirectoryTreeAsync");
+    [self.spinner startAnimation:self];
     loadDirectoryTreeOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadImageDirectoryTree:) object:self.baseDirectoryURL];
     SSImageBrowserWindow * __weak wSelf = self;
     NSInvocationOperation * __weak wOperation = loadDirectoryTreeOperation;
@@ -95,6 +121,7 @@
     directoryTreeDataSource = [[SSDirectoryTreeDataSource alloc] initWithBaseDirectory:self.baseDirectory];
     self.directoryTreeView.dataSource = directoryTreeDataSource;
     [self.spinner stopAnimation:self];
+    NSLog(@"loadedDirectoryTree");
 }
 
 - (void)displayImageFile:(SSFile*)imageFile {

@@ -18,8 +18,23 @@
 
 @implementation SSAppDelegate
 
+- (void)awakeFromNib {
+    self.windowManager = [[SSWindowManager alloc] init];    
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.windowManager = [[SSWindowManager alloc] init];
+}
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:filename];
+    NSNumber *isDirectory;
+    [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:nil];
+    if ( isDirectory.boolValue ) {
+        [self.windowManager openImageBrowserWithBaseDirectoryURL:url];
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (IBAction)openBrowser:(id)sender {

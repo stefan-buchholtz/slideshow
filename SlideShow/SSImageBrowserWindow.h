@@ -9,6 +9,8 @@
 #import <Quartz/Quartz.h>
 #import <Cocoa/Cocoa.h>
 
+static NSString *const ID_IMAGE_BROWSER = @"imageBrowser";
+
 @class SSWindowManager;
 @class SSDirectory;
 @class SSDirectoryTreeDataSource;
@@ -23,7 +25,7 @@
 @property (weak) SSWindowManager *manager;
 
 @property (strong) SSDirectory *baseDirectory;
-@property (strong) NSURL *baseDirectoryURL;
+@property (nonatomic, strong) NSURL *baseDirectoryURL;
 
 @property (strong) IBOutlet SSImageBrowserDataSource *imageBrowserDataSource;
 @property (weak) IBOutlet NSOutlineView *directoryTreeView;
@@ -31,14 +33,11 @@
 @property (weak) IBOutlet IKImageView *imageView;
 @property (weak) IBOutlet NSProgressIndicator *spinner;
 
-- (id)initWithBaseDirectoryURL:(NSURL *)baseDirectoryURL;
-
 // window delegate methods
 - (void)windowWillClose:(NSNotification *)notification;
 
 // outline view delegate methods
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification;
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item;
-
 
 @end
