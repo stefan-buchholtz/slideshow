@@ -5,13 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F840E0DE-FE29-424E-A042-B382719DA04B</string>
+	<string>B8F8C828-01D8-4718-A13A-F757F57FBBA0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SlideShow</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0DA20DCD-94AA-4110-A918-5686DFC45A7B</key>
-		<string>https://github.com/stefan-buchholtz/slideshow.git</string>
 		<key>1B25E883-F75B-4A14-AC10-B64AFAB82F3C</key>
 		<string>https://github.com/stefan-buchholtz/slideshow.git</string>
 	</dict>
@@ -19,17 +17,15 @@
 	<string>SlideShow.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0DA20DCD-94AA-4110-A918-5686DFC45A7B</key>
-		<string>../..</string>
 		<key>1B25E883-F75B-4A14-AC10-B64AFAB82F3C</key>
-		<string>../../../slideshow</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/stefan-buchholtz/slideshow.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0DA20DCD-94AA-4110-A918-5686DFC45A7B</string>
+	<string>1B25E883-F75B-4A14-AC10-B64AFAB82F3C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -39,14 +35,6 @@
 			<string>1B25E883-F75B-4A14-AC10-B64AFAB82F3C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>slideshow</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0DA20DCD-94AA-4110-A918-5686DFC45A7B</string>
-			<key>IDESourceControlWCCName</key>
-			<string>SlideShow</string>
 		</dict>
 	</array>
 </dict>

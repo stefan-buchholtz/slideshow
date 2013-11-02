@@ -16,6 +16,18 @@
 #import "SSDirectoryTreeDataSource.h"
 #import "SSImageBrowserDataSource.h"
 #import "SSImageBrowserItem.h"
+#import "SSImageView.h"
+
+#define IDX_ZOOM_TO_FIT         0
+#define IDX_ZOOM_OUT            1
+#define IDX_ZOOM_TO_ACTUAL_SIZE 2
+#define IDX_ZOOM_IN             3
+
+NSString *const TOOLBAR_ID = @"imageBrowserToolbar";
+NSString *const TOOLBARITEM_BROWSER_THUMBNAIL_SIZE = @"imageBrowserThumbnailSizeSlider";
+NSString *const TOOLBARITEM_START_SLIDESHOW = @"startSlideShow";
+NSString *const TOOLBARITEM_PREVIEW_ZOOM = @"previewZoomButtonGroup";
+NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 
 @interface SSImageBrowserWindow ()
 
@@ -48,12 +60,14 @@
     NSLog(@"windowDidLoad");
     [super windowDidLoad];
     
-    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"dummyImg" ofType: @"png"];
+    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"Images/dummyImg" ofType: @"png"];
     [self displayImageURL:[NSURL fileURLWithPath: dummyImagePath]];
 }
 
 - (void)awakeFromNib {
     NSLog(@"awakeFromNib");
+    
+    self.thumbnailZoom = 0.5;
     
     self.window.restorable = YES;
     self.window.restorationClass = [SSWindowManager class];
@@ -63,8 +77,7 @@
     self.directoryContentsView.allowsMultipleSelection = YES;
     self.directoryContentsView.allowsEmptySelection = YES;
     self.directoryContentsView.allowsReordering = NO;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageViewFrameChanged:) name:NSViewFrameDidChangeNotification object:self.imageView];
+    self.directoryContentsView.allowsDroppingOnItems = NO;
 }
 
 - (void)baseDirectoryChanged {
@@ -78,15 +91,8 @@
     }
 }
 
-- (void)setBaseDirectoryURL:(NSURL *)baseDirectoryURL {
-    if ( _baseDirectoryURL != baseDirectoryURL ) {
-        _baseDirectoryURL = baseDirectoryURL;
-        [self baseDirectoryChanged];
-    }
-}
-
 + (NSArray *)restorableStateKeyPaths {
-    return @[ @"baseDirectoryURL" ];
+    return @[ @"baseDirectoryURL", @"thumbnailZoom", @"previewZoom", @"previewZoomedToFit" ];
 }
 
 #pragma mark private methods
@@ -129,9 +135,46 @@
 }
 
 - (void)displayImageURL:(NSURL*)imageURL {
-    [self.imageView setImageWithURL:imageURL];
-    [self.imageView setCurrentToolMode:IKToolModeNone];
-    [self.imageView zoomImageToFit:self];
+    self.imageView.imageURL = imageURL;
+    [self.imageView scrollToBeginningOfDocument:self];
+}
+
+#pragma mark actions
+- (IBAction)clickedZoomButton:(id)sender {
+    NSInteger buttonIndex = [sender selectedSegment];
+    switch (buttonIndex) {
+        case IDX_ZOOM_TO_FIT:
+            [self.imageView zoomToFit:self];
+            break;
+        case IDX_ZOOM_OUT:
+            [self.imageView zoomOut:self];
+            break;
+        case IDX_ZOOM_TO_ACTUAL_SIZE:
+            [self.imageView zoomToActualSize:self];
+            break;
+        case IDX_ZOOM_IN:
+            [self.imageView zoomIn:self];
+            break;
+    }
+}
+
+- (IBAction)startSlideshow:(id)sender {
+}
+
+#pragma mark property getters and setters
+- (void)setBaseDirectoryURL:(NSURL *)baseDirectoryURL {
+    if ( _baseDirectoryURL != baseDirectoryURL ) {
+        _baseDirectoryURL = baseDirectoryURL;
+        [self baseDirectoryChanged];
+    }
+}
+
+- (void)setThumbnailZoom:(float)thumbnailZoom {
+    if ( _thumbnailZoom != thumbnailZoom ) {
+        _thumbnailZoom = thumbnailZoom;
+        self.thumbnailZoomSlider.floatValue = thumbnailZoom;
+        self.directoryContentsView.zoomValue = thumbnailZoom;
+    }
 }
 
 #pragma mark window delegate methods
@@ -161,8 +204,17 @@
 
 #pragma mark image view notification methods
 - (void)imageViewFrameChanged:(NSNotification *)notification {
-    [self.imageView zoomImageToFit:self];
+    //[self updateImageViewZoom];
 }
 
+#pragma mark toolbar delegate methods
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
+    return [NSArray arrayWithObjects:TOOLBARITEM_BROWSER_THUMBNAIL_SIZE, TOOLBARITEM_PREVIEW_ZOOM, TOOLBARITEM_START_SLIDESHOW, NSToolbarFlexibleSpaceItemIdentifier, TOOLBARITEM_PROGRESS_INDICATOR, nil];
+}
+
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
+    return [NSArray arrayWithObjects:TOOLBARITEM_BROWSER_THUMBNAIL_SIZE, TOOLBARITEM_PREVIEW_ZOOM, TOOLBARITEM_START_SLIDESHOW, NSToolbarFlexibleSpaceItemIdentifier,TOOLBARITEM_PROGRESS_INDICATOR, nil];
+}
 
 @end
+

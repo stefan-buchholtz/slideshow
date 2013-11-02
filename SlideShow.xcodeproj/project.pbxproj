@@ -21,6 +21,9 @@
 		6B3B479C181BAA9A0082CB47 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3B477B181BAA9A0082CB47 /* Cocoa.framework */; };
 		6B3B47A4181BAA9A0082CB47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B47A2181BAA9A0082CB47 /* InfoPlist.strings */; };
 		6B3B47A6181BAA9A0082CB47 /* SlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B47A5181BAA9A0082CB47 /* SlideShowTests.m */; };
+		6B48D6471824F2DB00BEB143 /* SSSlideShowWindowWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */; };
+		6B48D6481824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */; };
+		6B48D64C1824F3C100BEB143 /* SSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B48D64B1824F3C100BEB143 /* SSImageView.m */; };
 		6B76C4C5181BCD3A00C766D7 /* SSFileSystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B76C4C4181BCD3A00C766D7 /* SSFileSystemItem.m */; };
 		6B76C4C8181BCD8A00C766D7 /* SSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B76C4C7181BCD8A00C766D7 /* SSFile.m */; };
 		6B76C4CB181BCDAE00C766D7 /* SSDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B76C4CA181BCDAE00C766D7 /* SSDirectory.m */; };
@@ -31,7 +34,13 @@
 		6B77D652181E7008006753AD /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77D651181E7008006753AD /* NSArray+Map.m */; };
 		6B77D654181E74AD006753AD /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77D653181E74AD006753AD /* Quartz.framework */; };
 		6B77D658181EBF71006753AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77D657181EBF71006753AD /* QuartzCore.framework */; };
-		6B77D65A181EC0DE006753AD /* dummyImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B77D659181EC0DE006753AD /* dummyImg.png */; };
+		6B9960C51825179C00333DDD /* NSImage+ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */; };
+		6BD4BCC51823C69B006B703C /* dummyImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCBF1823C69B006B703C /* dummyImg.png */; };
+		6BD4BCC61823C69B006B703C /* TB_actualSize.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC01823C69B006B703C /* TB_actualSize.pdf */; };
+		6BD4BCC71823C69B006B703C /* TB_fitPopup.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC11823C69B006B703C /* TB_fitPopup.pdf */; };
+		6BD4BCC81823C69B006B703C /* TB_slideshow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC21823C69B006B703C /* TB_slideshow.pdf */; };
+		6BD4BCC91823C69B006B703C /* TB_zoomIn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC31823C69B006B703C /* TB_zoomIn.pdf */; };
+		6BD4BCCA1823C69B006B703C /* TB_zoomOut.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC41823C69B006B703C /* TB_zoomOut.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +79,11 @@
 		6B3B47A1181BAA9A0082CB47 /* SlideShowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlideShowTests-Info.plist"; sourceTree = "<group>"; };
 		6B3B47A3181BAA9A0082CB47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B3B47A5181BAA9A0082CB47 /* SlideShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideShowTests.m; sourceTree = "<group>"; };
+		6B48D6441824F2DB00BEB143 /* SSSlideShowWindowWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlideShowWindowWindowController.h; sourceTree = "<group>"; };
+		6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSlideShowWindowWindowController.m; sourceTree = "<group>"; };
+		6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSlideShowWindowWindowController.xib; sourceTree = "<group>"; };
+		6B48D64A1824F3C100BEB143 /* SSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSImageView.h; sourceTree = "<group>"; };
+		6B48D64B1824F3C100BEB143 /* SSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSImageView.m; sourceTree = "<group>"; };
 		6B76C439181BAF0600C766D7 /* SlideShow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SlideShow.entitlements; sourceTree = "<group>"; };
 		6B76C4C3181BCD3A00C766D7 /* SSFileSystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFileSystemItem.h; sourceTree = "<group>"; };
 		6B76C4C4181BCD3A00C766D7 /* SSFileSystemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFileSystemItem.m; sourceTree = "<group>"; };
@@ -90,7 +104,14 @@
 		6B77D651181E7008006753AD /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
 		6B77D653181E74AD006753AD /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		6B77D657181EBF71006753AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6B77D659181EC0DE006753AD /* dummyImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyImg.png; sourceTree = "<group>"; };
+		6B9960C31825179C00333DDD /* NSImage+ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+ImageUtils.h"; sourceTree = "<group>"; };
+		6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+ImageUtils.m"; sourceTree = "<group>"; };
+		6BD4BCBF1823C69B006B703C /* dummyImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyImg.png; sourceTree = "<group>"; };
+		6BD4BCC01823C69B006B703C /* TB_actualSize.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_actualSize.pdf; sourceTree = "<group>"; };
+		6BD4BCC11823C69B006B703C /* TB_fitPopup.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_fitPopup.pdf; sourceTree = "<group>"; };
+		6BD4BCC21823C69B006B703C /* TB_slideshow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_slideshow.pdf; sourceTree = "<group>"; };
+		6BD4BCC31823C69B006B703C /* TB_zoomIn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_zoomIn.pdf; sourceTree = "<group>"; };
+		6BD4BCC41823C69B006B703C /* TB_zoomOut.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_zoomOut.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +203,13 @@
 				6B2F2896181C3493004E152F /* SSWindowManager.m */,
 				6B76C4C2181BCA5100C766D7 /* Model */,
 				6B2F288B181C1923004E152F /* Image Browser */,
+				6B48D6431824F2B600BEB143 /* SlideShow */,
+				6B48D6491824F3A100BEB143 /* CustomImageView */,
 				6B77D64F181E6FE3006753AD /* Utilities */,
 				6B76C439181BAF0600C766D7 /* SlideShow.entitlements */,
 				6B3B4790181BAA9A0082CB47 /* MainMenu.xib */,
 				6B3B4793181BAA9A0082CB47 /* Images.xcassets */,
+				6BD4BCBE1823C69B006B703C /* Images */,
 				6B3B4782181BAA9A0082CB47 /* Supporting Files */,
 			);
 			path = SlideShow;
@@ -198,7 +222,6 @@
 				6B3B4784181BAA9A0082CB47 /* InfoPlist.strings */,
 				6B3B4787181BAA9A0082CB47 /* main.m */,
 				6B3B4789181BAA9A0082CB47 /* SlideShow-Prefix.pch */,
-				6B77D659181EC0DE006753AD /* dummyImg.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -219,6 +242,25 @@
 				6B3B47A2181BAA9A0082CB47 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B48D6431824F2B600BEB143 /* SlideShow */ = {
+			isa = PBXGroup;
+			children = (
+				6B48D6441824F2DB00BEB143 /* SSSlideShowWindowWindowController.h */,
+				6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */,
+				6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */,
+			);
+			name = SlideShow;
+			sourceTree = "<group>";
+		};
+		6B48D6491824F3A100BEB143 /* CustomImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6B48D64A1824F3C100BEB143 /* SSImageView.h */,
+				6B48D64B1824F3C100BEB143 /* SSImageView.m */,
+			);
+			name = CustomImageView;
 			sourceTree = "<group>";
 		};
 		6B76C4C2181BCA5100C766D7 /* Model */ = {
@@ -244,8 +286,23 @@
 			children = (
 				6B77D650181E7008006753AD /* NSArray+Map.h */,
 				6B77D651181E7008006753AD /* NSArray+Map.m */,
+				6B9960C31825179C00333DDD /* NSImage+ImageUtils.h */,
+				6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		6BD4BCBE1823C69B006B703C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6BD4BCBF1823C69B006B703C /* dummyImg.png */,
+				6BD4BCC01823C69B006B703C /* TB_actualSize.pdf */,
+				6BD4BCC11823C69B006B703C /* TB_fitPopup.pdf */,
+				6BD4BCC21823C69B006B703C /* TB_slideshow.pdf */,
+				6BD4BCC31823C69B006B703C /* TB_zoomIn.pdf */,
+				6BD4BCC41823C69B006B703C /* TB_zoomOut.pdf */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +390,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B3B4786181BAA9A0082CB47 /* InfoPlist.strings in Resources */,
+				6B48D6481824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib in Resources */,
 				6B3B4794181BAA9A0082CB47 /* Images.xcassets in Resources */,
+				6BD4BCCA1823C69B006B703C /* TB_zoomOut.pdf in Resources */,
+				6BD4BCC51823C69B006B703C /* dummyImg.png in Resources */,
+				6BD4BCC71823C69B006B703C /* TB_fitPopup.pdf in Resources */,
 				6B2F2891181C1976004E152F /* SSImageBrowserWindow.xib in Resources */,
-				6B77D65A181EC0DE006753AD /* dummyImg.png in Resources */,
 				6B3B4792181BAA9A0082CB47 /* MainMenu.xib in Resources */,
+				6BD4BCC61823C69B006B703C /* TB_actualSize.pdf in Resources */,
+				6BD4BCC91823C69B006B703C /* TB_zoomIn.pdf in Resources */,
+				6BD4BCC81823C69B006B703C /* TB_slideshow.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,8 +420,11 @@
 			files = (
 				6B76C4D2181BE54A00C766D7 /* SSSupportedFileChecker.m in Sources */,
 				6B3B478F181BAA9A0082CB47 /* SSAppDelegate.m in Sources */,
+				6B9960C51825179C00333DDD /* NSImage+ImageUtils.m in Sources */,
+				6B48D6471824F2DB00BEB143 /* SSSlideShowWindowWindowController.m in Sources */,
 				6B77D652181E7008006753AD /* NSArray+Map.m in Sources */,
 				6B2F2890181C1976004E152F /* SSImageBrowserWindow.m in Sources */,
+				6B48D64C1824F3C100BEB143 /* SSImageView.m in Sources */,
 				6B77D64B181E6A3B006753AD /* SSImageBrowserDataSource.m in Sources */,
 				6B76C4C8181BCD8A00C766D7 /* SSFile.m in Sources */,
 				6B2F2894181C2216004E152F /* SSDirectoryTreeDataSource.m in Sources */,
