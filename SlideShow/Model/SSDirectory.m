@@ -46,5 +46,27 @@ const int INITIAL_CAPACITY = 10;
     return result;
 }
 
+- (NSSet*)allFiles {
+    NSMutableSet *result = [[NSMutableSet alloc] initWithSet:self.files];
+    for (SSDirectory *subDirectory in self.subDirectories) {
+        [result unionSet:[subDirectory allFiles]];
+    }
+    return result;
+}
+
+- (SSFileSystemItem*)findSubItemWithPath:(NSString*)path {
+    if ( [self.url.path isEqualToString:path] ) {
+        return self;
+    }
+    SSFileSystemItem *result = nil;
+    for (SSDirectory *subDirectory in self.subDirectories) {
+        result = [subDirectory findSubItemWithPath:path];
+        if ( result ) {
+            return result;
+        }
+    }
+    return nil;
+}
+
 
 @end

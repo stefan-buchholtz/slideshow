@@ -9,14 +9,20 @@
 #import <Foundation/Foundation.h>
 
 @class SSImageBrowserWindow;
+@class SSSlideShowWindowController;
 
 @interface SSWindowManager : NSObject <NSWindowRestoration>
 
 @property (strong) NSMutableArray *imageBrowsers;
+@property (strong) SSSlideShowWindowController *activeSlideShow;
 
 - (SSImageBrowserWindow*)openImageBrowserWithBaseDirectoryURL:(NSURL*)baseDirectory;
 
 - (void)removeImageBrowser:(SSImageBrowserWindow*)imageBrowser;
+
+- (SSSlideShowWindowController*)startSlideShowWithImageFiles:(NSSet*)imageFiles orderByDirectory:(BOOL)orderByDirectory;
+
+- (void)endSlideShow:(SSSlideShowWindowController*)slideShow;
 
 + (SSWindowManager*)mainWindowManager;
 

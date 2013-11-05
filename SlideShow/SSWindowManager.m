@@ -9,6 +9,7 @@
 #import "SSWindowManager.h"
 #import "SSAppDelegate.h"
 #import "SSImageBrowserWindow.h"
+#import "SSSlideShowWindowController.h"
 
 @implementation SSWindowManager
 
@@ -40,6 +41,25 @@
 - (void)removeImageBrowser:(SSImageBrowserWindow*)imageBrowser {
     [self.imageBrowsers removeObject:imageBrowser];
 }
+
+- (SSSlideShowWindowController*)startSlideShowWithImageFiles:(NSSet*)imageFiles orderByDirectory:(BOOL)orderByDirectory {
+    SSSlideShowWindowController *slideShow = [[SSSlideShowWindowController alloc] initWithImageList:imageFiles orderByDirectory:orderByDirectory];
+    slideShow.manager = self;
+    
+    slideShow.wrapAround = YES;
+    
+    [slideShow showWindow:self];
+    
+    self.activeSlideShow = slideShow;
+    return slideShow;
+}
+
+- (void)endSlideShow:(SSSlideShowWindowController*)slideShow {
+    if ( slideShow == self.activeSlideShow ) {
+        self.activeSlideShow = nil;
+    }
+}
+
 
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler {
     if ( [identifier isEqualToString:ID_IMAGE_BROWSER] ) {

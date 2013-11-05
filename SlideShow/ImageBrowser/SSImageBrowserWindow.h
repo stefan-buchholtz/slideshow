@@ -18,25 +18,28 @@ static NSString *const ID_IMAGE_BROWSER = @"imageBrowser";
 @class SSImageView;
 
 @interface SSImageBrowserWindow : NSWindowController <NSWindowDelegate, NSToolbarDelegate> {
+    SSDirectory                 *selectedDirectory;
     SSDirectoryTreeDataSource   *directoryTreeDataSource;
     NSOperationQueue            *backgroundTaskQueue;
     NSInvocationOperation       *loadDirectoryTreeOperation;
+    NSString                    *_treeViewSelectionPath;
 }
 
 @property (weak) SSWindowManager *manager;
 
-@property (strong) SSDirectory *baseDirectory;
-@property (nonatomic, strong) NSURL *baseDirectoryURL;
-@property (nonatomic, assign) float thumbnailZoom;
+@property (strong) SSDirectory          *baseDirectory;
+@property (nonatomic, strong) NSURL     *baseDirectoryURL;
+@property (nonatomic, assign) float     thumbnailZoom;
+@property (nonatomic, strong) NSString  *treeViewSelectionPath;
 
-@property (strong) IBOutlet SSImageBrowserDataSource *imageBrowserDataSource;
-@property (weak) IBOutlet NSOutlineView *directoryTreeView;
-@property (weak) IBOutlet IKImageBrowserView *directoryContentsView;
-@property (weak) IBOutlet SSImageView *imageView;
-@property (weak) IBOutlet NSScrollView *imageScrollView;
-@property (weak) IBOutlet NSProgressIndicator *spinner;
-@property (weak) IBOutlet NSSlider *thumbnailZoomSlider;
-@property (weak) IBOutlet NSSegmentedControl *zoomButtonGroup;
+@property (strong) IBOutlet SSImageBrowserDataSource    *imageBrowserDataSource;
+@property (weak) IBOutlet NSOutlineView                 *directoryTreeView;
+@property (weak) IBOutlet IKImageBrowserView            *directoryContentsView;
+@property (weak) IBOutlet SSImageView                   *imageView;
+@property (weak) IBOutlet NSScrollView                  *imageScrollView;
+@property (weak) IBOutlet NSProgressIndicator           *spinner;
+@property (weak) IBOutlet NSSlider                      *thumbnailZoomSlider;
+@property (weak) IBOutlet NSSegmentedControl            *zoomButtonGroup;
 
 // window delegate methods
 - (void)windowWillClose:(NSNotification *)notification;

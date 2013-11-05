@@ -21,4 +21,8 @@
 
 - (BOOL)hasItems;
 
+- (NSSet*)allFiles;
+
+- (SSFileSystemItem*)findSubItemWithPath:(NSString*)path;
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B08EEE71827DBA900C53E61 /* SSFullScreenWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B08EEE61827DBA900C53E61 /* SSFullScreenWindow.m */; };
 		6B2F2890181C1976004E152F /* SSImageBrowserWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F288E181C1976004E152F /* SSImageBrowserWindow.m */; };
 		6B2F2891181C1976004E152F /* SSImageBrowserWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B2F288F181C1976004E152F /* SSImageBrowserWindow.xib */; };
 		6B2F2894181C2216004E152F /* SSDirectoryTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2F2893181C2216004E152F /* SSDirectoryTreeDataSource.m */; };
@@ -15,14 +16,13 @@
 		6B3B4786181BAA9A0082CB47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B4784181BAA9A0082CB47 /* InfoPlist.strings */; };
 		6B3B4788181BAA9A0082CB47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B4787181BAA9A0082CB47 /* main.m */; };
 		6B3B478F181BAA9A0082CB47 /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B478E181BAA9A0082CB47 /* SSAppDelegate.m */; };
-		6B3B4792181BAA9A0082CB47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B4790181BAA9A0082CB47 /* MainMenu.xib */; };
 		6B3B4794181BAA9A0082CB47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B4793181BAA9A0082CB47 /* Images.xcassets */; };
 		6B3B479B181BAA9A0082CB47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3B479A181BAA9A0082CB47 /* XCTest.framework */; };
 		6B3B479C181BAA9A0082CB47 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3B477B181BAA9A0082CB47 /* Cocoa.framework */; };
 		6B3B47A4181BAA9A0082CB47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B47A2181BAA9A0082CB47 /* InfoPlist.strings */; };
 		6B3B47A6181BAA9A0082CB47 /* SlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B47A5181BAA9A0082CB47 /* SlideShowTests.m */; };
-		6B48D6471824F2DB00BEB143 /* SSSlideShowWindowWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */; };
-		6B48D6481824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */; };
+		6B48D6471824F2DB00BEB143 /* SSSlideShowWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B48D6451824F2DB00BEB143 /* SSSlideShowWindowController.m */; };
+		6B48D6481824F2DB00BEB143 /* SSSlideShowWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B48D6461824F2DB00BEB143 /* SSSlideShowWindowController.xib */; };
 		6B48D64C1824F3C100BEB143 /* SSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B48D64B1824F3C100BEB143 /* SSImageView.m */; };
 		6B76C4C5181BCD3A00C766D7 /* SSFileSystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B76C4C4181BCD3A00C766D7 /* SSFileSystemItem.m */; };
 		6B76C4C8181BCD8A00C766D7 /* SSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B76C4C7181BCD8A00C766D7 /* SSFile.m */; };
@@ -34,7 +34,11 @@
 		6B77D652181E7008006753AD /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77D651181E7008006753AD /* NSArray+Map.m */; };
 		6B77D654181E74AD006753AD /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77D653181E74AD006753AD /* Quartz.framework */; };
 		6B77D658181EBF71006753AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77D657181EBF71006753AD /* QuartzCore.framework */; };
+		6B8E95741828232F00E1CB68 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B4790181BAA9A0082CB47 /* MainMenu.xib */; };
 		6B9960C51825179C00333DDD /* NSImage+ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */; };
+		6BA97FC71827FCB400F90F84 /* GeometryFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA97FC61827FCB400F90F84 /* GeometryFunctions.m */; };
+		6BA97FCB1828119D00F90F84 /* NSOutlineView+SelectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA97FCA1828119D00F90F84 /* NSOutlineView+SelectionUtils.m */; };
+		6BB459631827B95200BD0E35 /* NSArray+SortedArrayWithKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB459621827B95200BD0E35 /* NSArray+SortedArrayWithKey.m */; };
 		6BD4BCC51823C69B006B703C /* dummyImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCBF1823C69B006B703C /* dummyImg.png */; };
 		6BD4BCC61823C69B006B703C /* TB_actualSize.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC01823C69B006B703C /* TB_actualSize.pdf */; };
 		6BD4BCC71823C69B006B703C /* TB_fitPopup.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6BD4BCC11823C69B006B703C /* TB_fitPopup.pdf */; };
@@ -54,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B08EEE51827DBA900C53E61 /* SSFullScreenWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFullScreenWindow.h; sourceTree = "<group>"; };
+		6B08EEE61827DBA900C53E61 /* SSFullScreenWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFullScreenWindow.m; sourceTree = "<group>"; };
 		6B2F288D181C1976004E152F /* SSImageBrowserWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSImageBrowserWindow.h; sourceTree = "<group>"; };
 		6B2F288E181C1976004E152F /* SSImageBrowserWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSImageBrowserWindow.m; sourceTree = "<group>"; };
 		6B2F288F181C1976004E152F /* SSImageBrowserWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSImageBrowserWindow.xib; sourceTree = "<group>"; };
@@ -79,9 +85,9 @@
 		6B3B47A1181BAA9A0082CB47 /* SlideShowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlideShowTests-Info.plist"; sourceTree = "<group>"; };
 		6B3B47A3181BAA9A0082CB47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B3B47A5181BAA9A0082CB47 /* SlideShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideShowTests.m; sourceTree = "<group>"; };
-		6B48D6441824F2DB00BEB143 /* SSSlideShowWindowWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlideShowWindowWindowController.h; sourceTree = "<group>"; };
-		6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSlideShowWindowWindowController.m; sourceTree = "<group>"; };
-		6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSlideShowWindowWindowController.xib; sourceTree = "<group>"; };
+		6B48D6441824F2DB00BEB143 /* SSSlideShowWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSlideShowWindowController.h; sourceTree = "<group>"; };
+		6B48D6451824F2DB00BEB143 /* SSSlideShowWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSlideShowWindowController.m; sourceTree = "<group>"; };
+		6B48D6461824F2DB00BEB143 /* SSSlideShowWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSlideShowWindowController.xib; sourceTree = "<group>"; };
 		6B48D64A1824F3C100BEB143 /* SSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSImageView.h; sourceTree = "<group>"; };
 		6B48D64B1824F3C100BEB143 /* SSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSImageView.m; sourceTree = "<group>"; };
 		6B76C439181BAF0600C766D7 /* SlideShow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SlideShow.entitlements; sourceTree = "<group>"; };
@@ -100,12 +106,20 @@
 		6B77D64A181E6A3B006753AD /* SSImageBrowserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSImageBrowserDataSource.m; sourceTree = "<group>"; };
 		6B77D64C181E6A46006753AD /* SSImageBrowserItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSImageBrowserItem.h; sourceTree = "<group>"; };
 		6B77D64D181E6A46006753AD /* SSImageBrowserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSImageBrowserItem.m; sourceTree = "<group>"; };
-		6B77D650181E7008006753AD /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
+		6B77D650181E7008006753AD /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; usesTabs = 0; };
 		6B77D651181E7008006753AD /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
 		6B77D653181E74AD006753AD /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		6B77D657181EBF71006753AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6B9960C31825179C00333DDD /* NSImage+ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+ImageUtils.h"; sourceTree = "<group>"; };
 		6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+ImageUtils.m"; sourceTree = "<group>"; };
+		6BA97FC31827F18D00F90F84 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		6BA97FC51827F40C00F90F84 /* KeyCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyCodes.h; sourceTree = "<group>"; };
+		6BA97FC61827FCB400F90F84 /* GeometryFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryFunctions.m; sourceTree = "<group>"; };
+		6BA97FC81827FCCE00F90F84 /* GeometryFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryFunctions.h; sourceTree = "<group>"; };
+		6BA97FC91828119D00F90F84 /* NSOutlineView+SelectionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOutlineView+SelectionUtils.h"; sourceTree = "<group>"; };
+		6BA97FCA1828119D00F90F84 /* NSOutlineView+SelectionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOutlineView+SelectionUtils.m"; sourceTree = "<group>"; };
+		6BB459611827B95200BD0E35 /* NSArray+SortedArrayWithKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SortedArrayWithKey.h"; sourceTree = "<group>"; };
+		6BB459621827B95200BD0E35 /* NSArray+SortedArrayWithKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SortedArrayWithKey.m"; sourceTree = "<group>"; };
 		6BD4BCBF1823C69B006B703C /* dummyImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyImg.png; sourceTree = "<group>"; };
 		6BD4BCC01823C69B006B703C /* TB_actualSize.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_actualSize.pdf; sourceTree = "<group>"; };
 		6BD4BCC11823C69B006B703C /* TB_fitPopup.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TB_fitPopup.pdf; sourceTree = "<group>"; };
@@ -151,6 +165,7 @@
 				6B2F288F181C1976004E152F /* SSImageBrowserWindow.xib */,
 			);
 			name = "Image Browser";
+			path = ImageBrowser;
 			sourceTree = "<group>";
 		};
 		6B3B476F181BAA9A0082CB47 = {
@@ -175,6 +190,7 @@
 		6B3B477A181BAA9A0082CB47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BA97FC31827F18D00F90F84 /* Carbon.framework */,
 				6B77D657181EBF71006753AD /* QuartzCore.framework */,
 				6B77D653181E74AD006753AD /* Quartz.framework */,
 				6B3B477B181BAA9A0082CB47 /* Cocoa.framework */,
@@ -204,8 +220,9 @@
 				6B76C4C2181BCA5100C766D7 /* Model */,
 				6B2F288B181C1923004E152F /* Image Browser */,
 				6B48D6431824F2B600BEB143 /* SlideShow */,
-				6B48D6491824F3A100BEB143 /* CustomImageView */,
+				6B48D6491824F3A100BEB143 /* Custom Views */,
 				6B77D64F181E6FE3006753AD /* Utilities */,
+				6BA97FC51827F40C00F90F84 /* KeyCodes.h */,
 				6B76C439181BAF0600C766D7 /* SlideShow.entitlements */,
 				6B3B4790181BAA9A0082CB47 /* MainMenu.xib */,
 				6B3B4793181BAA9A0082CB47 /* Images.xcassets */,
@@ -247,20 +264,23 @@
 		6B48D6431824F2B600BEB143 /* SlideShow */ = {
 			isa = PBXGroup;
 			children = (
-				6B48D6441824F2DB00BEB143 /* SSSlideShowWindowWindowController.h */,
-				6B48D6451824F2DB00BEB143 /* SSSlideShowWindowWindowController.m */,
-				6B48D6461824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib */,
+				6B48D6441824F2DB00BEB143 /* SSSlideShowWindowController.h */,
+				6B48D6451824F2DB00BEB143 /* SSSlideShowWindowController.m */,
+				6B48D6461824F2DB00BEB143 /* SSSlideShowWindowController.xib */,
 			);
-			name = SlideShow;
+			path = SlideShow;
 			sourceTree = "<group>";
 		};
-		6B48D6491824F3A100BEB143 /* CustomImageView */ = {
+		6B48D6491824F3A100BEB143 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				6B48D64A1824F3C100BEB143 /* SSImageView.h */,
 				6B48D64B1824F3C100BEB143 /* SSImageView.m */,
+				6B08EEE51827DBA900C53E61 /* SSFullScreenWindow.h */,
+				6B08EEE61827DBA900C53E61 /* SSFullScreenWindow.m */,
 			);
-			name = CustomImageView;
+			name = "Custom Views";
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		6B76C4C2181BCA5100C766D7 /* Model */ = {
@@ -278,7 +298,7 @@
 				6B76C4D0181BE54A00C766D7 /* SSSupportedFileChecker.h */,
 				6B76C4D1181BE54A00C766D7 /* SSSupportedFileChecker.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6B77D64F181E6FE3006753AD /* Utilities */ = {
@@ -288,8 +308,14 @@
 				6B77D651181E7008006753AD /* NSArray+Map.m */,
 				6B9960C31825179C00333DDD /* NSImage+ImageUtils.h */,
 				6B9960C41825179C00333DDD /* NSImage+ImageUtils.m */,
+				6BB459611827B95200BD0E35 /* NSArray+SortedArrayWithKey.h */,
+				6BB459621827B95200BD0E35 /* NSArray+SortedArrayWithKey.m */,
+				6BA97FC81827FCCE00F90F84 /* GeometryFunctions.h */,
+				6BA97FC61827FCB400F90F84 /* GeometryFunctions.m */,
+				6BA97FC91828119D00F90F84 /* NSOutlineView+SelectionUtils.h */,
+				6BA97FCA1828119D00F90F84 /* NSOutlineView+SelectionUtils.m */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		6BD4BCBE1823C69B006B703C /* Images */ = {
@@ -389,14 +415,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8E95741828232F00E1CB68 /* MainMenu.xib in Resources */,
 				6B3B4786181BAA9A0082CB47 /* InfoPlist.strings in Resources */,
-				6B48D6481824F2DB00BEB143 /* SSSlideShowWindowWindowController.xib in Resources */,
+				6B48D6481824F2DB00BEB143 /* SSSlideShowWindowController.xib in Resources */,
 				6B3B4794181BAA9A0082CB47 /* Images.xcassets in Resources */,
 				6BD4BCCA1823C69B006B703C /* TB_zoomOut.pdf in Resources */,
 				6BD4BCC51823C69B006B703C /* dummyImg.png in Resources */,
 				6BD4BCC71823C69B006B703C /* TB_fitPopup.pdf in Resources */,
 				6B2F2891181C1976004E152F /* SSImageBrowserWindow.xib in Resources */,
-				6B3B4792181BAA9A0082CB47 /* MainMenu.xib in Resources */,
 				6BD4BCC61823C69B006B703C /* TB_actualSize.pdf in Resources */,
 				6BD4BCC91823C69B006B703C /* TB_zoomIn.pdf in Resources */,
 				6BD4BCC81823C69B006B703C /* TB_slideshow.pdf in Resources */,
@@ -418,18 +444,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B08EEE71827DBA900C53E61 /* SSFullScreenWindow.m in Sources */,
 				6B76C4D2181BE54A00C766D7 /* SSSupportedFileChecker.m in Sources */,
 				6B3B478F181BAA9A0082CB47 /* SSAppDelegate.m in Sources */,
 				6B9960C51825179C00333DDD /* NSImage+ImageUtils.m in Sources */,
-				6B48D6471824F2DB00BEB143 /* SSSlideShowWindowWindowController.m in Sources */,
+				6B48D6471824F2DB00BEB143 /* SSSlideShowWindowController.m in Sources */,
 				6B77D652181E7008006753AD /* NSArray+Map.m in Sources */,
 				6B2F2890181C1976004E152F /* SSImageBrowserWindow.m in Sources */,
 				6B48D64C1824F3C100BEB143 /* SSImageView.m in Sources */,
 				6B77D64B181E6A3B006753AD /* SSImageBrowserDataSource.m in Sources */,
+				6BA97FCB1828119D00F90F84 /* NSOutlineView+SelectionUtils.m in Sources */,
 				6B76C4C8181BCD8A00C766D7 /* SSFile.m in Sources */,
 				6B2F2894181C2216004E152F /* SSDirectoryTreeDataSource.m in Sources */,
+				6BA97FC71827FCB400F90F84 /* GeometryFunctions.m in Sources */,
 				6B2F2897181C3493004E152F /* SSWindowManager.m in Sources */,
 				6B77D64E181E6A46006753AD /* SSImageBrowserItem.m in Sources */,
+				6BB459631827B95200BD0E35 /* NSArray+SortedArrayWithKey.m in Sources */,
 				6B76C4CB181BCDAE00C766D7 /* SSDirectory.m in Sources */,
 				6B76C4CE181BD57700C766D7 /* SSDirectoryWalker.m in Sources */,
 				6B76C4C5181BCD3A00C766D7 /* SSFileSystemItem.m in Sources */,

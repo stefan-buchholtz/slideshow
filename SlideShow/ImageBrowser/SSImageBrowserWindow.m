@@ -17,6 +17,7 @@
 #import "SSImageBrowserDataSource.h"
 #import "SSImageBrowserItem.h"
 #import "SSImageView.h"
+#import "NSOutlineView+SelectionUtils.h"
 
 #define IDX_ZOOM_TO_FIT         0
 #define IDX_ZOOM_OUT            1
@@ -45,7 +46,11 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 
 - (void)displayImageURL:(NSURL*)imageURL;
 
-- (void)imageViewFrameChanged:(NSNotification *)notification;
+- (NSSet*)selectedImages;
+
+- (void)selectDirectoryWithPath:(NSString*)path;
+
+- (void)expandParentDirectories:(SSDirectory*)directory;
 
 @end
 
@@ -57,15 +62,15 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 }
 
 - (void)windowDidLoad {
-    NSLog(@"windowDidLoad");
+    // NSLog(@"windowDidLoad");
     [super windowDidLoad];
     
-    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"Images/dummyImg" ofType: @"png"];
+    NSString *dummyImagePath = [[NSBundle mainBundle] pathForResource: @"dummyImg" ofType: @"png"];
     [self displayImageURL:[NSURL fileURLWithPath: dummyImagePath]];
 }
 
 - (void)awakeFromNib {
-    NSLog(@"awakeFromNib");
+    // NSLog(@"awakeFromNib");
     
     self.thumbnailZoom = 0.5;
     
@@ -78,11 +83,13 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     self.directoryContentsView.allowsEmptySelection = YES;
     self.directoryContentsView.allowsReordering = NO;
     self.directoryContentsView.allowsDroppingOnItems = NO;
+    
+    self.imageView.backgroundColor = [NSColor whiteColor];
 }
 
 - (void)baseDirectoryChanged {
     if ( !self.window ) {
-        NSLog(@"SSImageBrowserWindow: setting baseDirectoryURL before initialization complete");
+        // NSLog(@"SSImageBrowserWindow: setting baseDirectoryURL before initialization complete");
         return;
     }
     if ( self.baseDirectoryURL ) {
@@ -91,8 +98,16 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     }
 }
 
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey {
+    if ([theKey isEqualToString:@"treeViewSelectionPath"]) {
+        return NO;
+    } else {
+        return [super automaticallyNotifiesObserversForKey:theKey];
+    }
+}
+
 + (NSArray *)restorableStateKeyPaths {
-    return @[ @"baseDirectoryURL", @"thumbnailZoom", @"previewZoom", @"previewZoomedToFit" ];
+    return @[ @"baseDirectoryURL", @"thumbnailZoom", @"previewZoom", @"previewZoomedToFit", @"treeViewSelectionPath" ];
 }
 
 #pragma mark private methods
@@ -102,7 +117,7 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 }
 
 - (void)loadImageDirectoryTreeAsync {
-    NSLog(@"loadImageDirectoryTreeAsync");
+    // NSLog(@"loadImageDirectoryTreeAsync");
     [self.spinner startAnimation:self];
     loadDirectoryTreeOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadImageDirectoryTree:) object:self.baseDirectoryURL];
     SSImageBrowserWindow * __weak wSelf = self;
@@ -127,7 +142,11 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     directoryTreeDataSource = [[SSDirectoryTreeDataSource alloc] initWithBaseDirectory:self.baseDirectory];
     self.directoryTreeView.dataSource = directoryTreeDataSource;
     [self.spinner stopAnimation:self];
-    NSLog(@"loadedDirectoryTree");
+    loadDirectoryTreeOperation = nil;
+    backgroundTaskQueue = nil;
+    
+    [self selectDirectoryWithPath:_treeViewSelectionPath];
+    // NSLog(@"loadedDirectoryTree");
 }
 
 - (void)displayImageFile:(SSFile*)imageFile {
@@ -138,6 +157,41 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     self.imageView.imageURL = imageURL;
     [self.imageView scrollToBeginningOfDocument:self];
 }
+
+- (NSSet*)selectedImages {
+    NSIndexSet *selectionIndexes = [_directoryContentsView selectionIndexes];
+    if ( selectionIndexes.count == 0 ) {
+        return nil;
+    }
+    
+    NSMutableSet *imageFiles = [[NSMutableSet alloc] init];
+    [selectionIndexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        SSFile *imageFile = [[_imageBrowserDataSource imageBrowser:_directoryContentsView itemAtIndex:index] file];
+        if ( imageFile ) {
+            [imageFiles addObject:imageFile];
+        }
+    }];
+    return imageFiles;
+}
+
+- (void)selectDirectoryWithPath:(NSString*)path {
+    if ( _baseDirectory && path ) {
+        SSFileSystemItem *selectedItem = [_baseDirectory findSubItemWithPath:path];
+        if ( [selectedItem isKindOfClass:[SSDirectory class]] ) {
+            [self expandParentDirectories:(SSDirectory*)selectedItem];
+            [_directoryTreeView selectItem:selectedItem];
+        }
+    }
+}
+
+- (void)expandParentDirectories:(SSDirectory*)directory {
+    SSDirectory *parent = (SSDirectory*)directory.parent;
+    if ( parent ) {
+        [self expandParentDirectories:parent];
+        [_directoryTreeView expandItem:parent];
+    }
+}
+
 
 #pragma mark actions
 - (IBAction)clickedZoomButton:(id)sender {
@@ -159,6 +213,16 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 }
 
 - (IBAction)startSlideshow:(id)sender {
+    NSSet *imageFiles = [self selectedImages];
+    if ( !imageFiles || imageFiles.count == 0 ) {
+        if ( selectedDirectory ) {
+            imageFiles = [selectedDirectory allFiles];
+        }
+    }
+    
+    if ( imageFiles && imageFiles.count > 0 ) {
+        [[SSWindowManager mainWindowManager] startSlideShowWithImageFiles:imageFiles orderByDirectory:YES];
+    }
 }
 
 #pragma mark property getters and setters
@@ -177,6 +241,19 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     }
 }
 
+- (NSString*)treeViewSelectionPath {
+    return _treeViewSelectionPath;
+}
+
+- (void)setTreeViewSelectionPath:(NSString*)treeViewSelectionPath {
+    if ( _treeViewSelectionPath != treeViewSelectionPath ) {
+        _treeViewSelectionPath = treeViewSelectionPath;
+        [self willChangeValueForKey:@"treeViewSelectionPath"];
+        [self selectDirectoryWithPath:treeViewSelectionPath];
+        [self didChangeValueForKey:@"treeViewSelectionPath"];
+    }
+}
+
 #pragma mark window delegate methods
 // window delegate methods
 - (void)windowWillClose:(NSNotification *)notification {
@@ -186,7 +263,11 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 #pragma mark outline view delegate methods
 // outline view delegate methods
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
-    self.imageBrowserDataSource.directory = [self.directoryTreeView itemAtRow:[self.directoryTreeView selectedRow]];
+    [self willChangeValueForKey:@"treeViewSelectionPath"];
+    selectedDirectory = [self.directoryTreeView itemAtRow:[self.directoryTreeView selectedRow]];
+    _treeViewSelectionPath = selectedDirectory.url.path;
+    [self didChangeValueForKey:@"treeViewSelectionPath"];
+    self.imageBrowserDataSource.directory = selectedDirectory;
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
@@ -202,11 +283,6 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     }
 }
 
-#pragma mark image view notification methods
-- (void)imageViewFrameChanged:(NSNotification *)notification {
-    //[self updateImageViewZoom];
-}
-
 #pragma mark toolbar delegate methods
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
     return [NSArray arrayWithObjects:TOOLBARITEM_BROWSER_THUMBNAIL_SIZE, TOOLBARITEM_PREVIEW_ZOOM, TOOLBARITEM_START_SLIDESHOW, NSToolbarFlexibleSpaceItemIdentifier, TOOLBARITEM_PROGRESS_INDICATOR, nil];
@@ -217,4 +293,3 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 }
 
 @end
-

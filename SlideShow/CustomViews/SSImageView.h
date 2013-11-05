@@ -15,9 +15,12 @@
 
 @property (nonatomic, strong) NSImage   *image;
 @property (nonatomic, strong) NSURL     *imageURL;
+@property (nonatomic, strong) NSColor   *backgroundColor;
 @property (nonatomic, assign) CGFloat   zoomFactor;
 @property (nonatomic, assign) BOOL      displayImagePath;
 @property (nonatomic, assign) BOOL      displayZoomFactor;
+
+- (NSSize)zoomedImageSize;
 
 - (void)zoomToFit:(id)sender;
 

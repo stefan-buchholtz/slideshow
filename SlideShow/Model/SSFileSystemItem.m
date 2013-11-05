@@ -18,7 +18,21 @@
 }
 
 - (NSString*)name {
-    return [[NSFileManager defaultManager] displayNameAtPath:self.url.path];
+    if ( !_name ) {
+        _name = [[NSFileManager defaultManager] displayNameAtPath:self.url.path];
+    }
+    return _name;
+}
+
+- (NSString*)fullName {
+    if ( !_fullName ) {
+        if ( _parent ) {
+            _fullName = [_parent.fullName stringByAppendingFormat:@"/%@", self.name];
+        } else {
+            _fullName = self.name;
+        }
+    }
+    return _fullName;
 }
 
 - (NSString*)stringValue {
