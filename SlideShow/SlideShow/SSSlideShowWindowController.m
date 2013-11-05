@@ -22,6 +22,8 @@
 
 - (void)loadImage;
 
+- (void)setupOverlay;
+
 @end
 
 @implementation SSSlideShowWindowController
@@ -40,6 +42,8 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     self.imageView.backgroundColor = [NSColor blackColor];
+    
+    [self setupOverlay];
 
     _position = 0;
     [self.imageView zoomToFit:self];
@@ -153,8 +157,24 @@
     if ( _position >= 0 && _position < imageCount ) {
         SSFile *imageFile = [self.imageList objectAtIndex:_position];
         self.imageView.imageURL = imageFile.url;
+        self.imageNameField.stringValue = imageFile.name;
     }
 }
+
+- (void)setupOverlay {
+    self.overlayWindow.level = self.window.level + 1;
+    
+    NSRect slideshowFrame = self.window.frame;
+    int labelHeight = self.imageNameField.frame.size.height;
+    slideshowFrame.origin.y = slideshowFrame.size.height - labelHeight;
+    slideshowFrame.size.height = labelHeight;
+    [self.overlayWindow setFrame:slideshowFrame display:YES];
+    self.overlayWindow.opaque = NO;
+    self.overlayWindow.backgroundColor = [NSColor colorWithCalibratedRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    
+    [self.overlayWindow orderFront:self];
+}
+
 
 #pragma mark property getters / setters
 - (void)setPosition:(int)position {

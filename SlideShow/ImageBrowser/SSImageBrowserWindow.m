@@ -398,7 +398,9 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
 #pragma mark window delegate methods
 // window delegate methods
 - (void)windowWillClose:(NSNotification *)notification {
-    [self.manager removeImageBrowser:self];
+    if ( notification.object == self.window ) {
+        [self.manager removeImageBrowser:self];
+    }
 }
 
 #pragma mark outline view delegate methods

@@ -24,6 +24,9 @@
 
 @property (weak) IBOutlet NSScrollView  *scrollView;
 @property (weak) IBOutlet SSImageView   *imageView;
+@property (strong) IBOutlet NSWindow    *overlayWindow;
+@property (weak) IBOutlet NSTextField   *imageNameField;
+@property (weak) IBOutlet NSTextField   *zoomFactorField;
 
 - (id)initWithImageList:(NSSet *)imageFiles orderByDirectory:(BOOL)orderByDirectory;
 
