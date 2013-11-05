@@ -316,16 +316,76 @@
                 <menuItem title="View" id="295">
                     <menu key="submenu" title="View" id="296">
                         <items>
+                            <menuItem title="Start Slideshow" keyEquivalent="s" id="ATy-zl-vK0">
+                                <connections>
+                                    <action selector="startSlideshow:" target="-1" id="jWB-3j-t34"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="TMZ-iD-vdF"/>
+                            <menuItem title="Sorted by Folder" id="M0B-hR-dC9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleSortByFolder:" target="-1" id="tAo-Es-QYP"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Images in Subfolders" id="PLa-Wz-WM9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleShowImagesInSubFolders:" target="-1" id="pfx-y1-4u6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="eSn-rh-qpe"/>
+                            <menuItem title="Zoom to Actual Size" keyEquivalent="0" id="pf2-ke-7oC">
+                                <connections>
+                                    <action selector="zoomToActualSize:" target="-1" id="CXT-dz-2zy"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom to Fit" keyEquivalent="9" id="eUg-8k-zzd">
+                                <connections>
+                                    <action selector="zoomToFit:" target="-1" id="NX0-7o-xhJ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom In" keyEquivalent="+" id="uTZ-Vu-Sj3">
+                                <connections>
+                                    <action selector="zoomIn:" target="-1" id="Qp3-rS-xo1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom Out" keyEquivalent="-" id="W3i-Ii-HkJ">
+                                <connections>
+                                    <action selector="zoomOut:" target="-1" id="DwJ-FP-Dsg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="1O9-Ec-Vhz"/>
                             <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleToolbarShown:" target="-1" id="366"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Customize Toolbar…" id="298">
-                                <connections>
-                                    <action selector="runToolbarCustomizationPalette:" target="-1" id="365"/>
-                                </connections>
+                            <menuItem title="Toolbar Display" id="UwM-kH-2Q9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Toolbar Display" id="7ca-wx-UdG">
+                                    <items>
+                                        <menuItem title="Icon and Text" state="on" id="bbS-kj-j6Q">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showToolbarIconsAndText:" target="-1" id="G2r-dc-iWX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Icon Only" id="b9s-Oj-GUP">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showToolbarIcons:" target="-1" id="pcQ-fR-fMc"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Text Only" id="gtw-3j-r2J">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showToolbarText:" target="-1" id="4Jk-vo-NYb"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                         </items>
                     </menu>

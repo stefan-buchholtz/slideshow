@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlideShow/ImageBrowser/SSImageBrowserDataSource.m"
-            timestampString = "404649592.132355"
+            timestampString = "405348216.485298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-numberOfItemsInImageBrowser:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlideShow/ImageBrowser/SSImageBrowserDataSource.m"
-            timestampString = "404649593.159725"
+            timestampString = "405348216.485298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "-imageBrowser:itemAtIndex:"
             landmarkType = "5">
          </BreakpointContent>

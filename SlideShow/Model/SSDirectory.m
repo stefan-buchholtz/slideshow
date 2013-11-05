@@ -54,13 +54,13 @@ const int INITIAL_CAPACITY = 10;
     return result;
 }
 
-- (SSFileSystemItem*)findSubItemWithPath:(NSString*)path {
+- (SSDirectory*)findSubDirectoryWithPath:(NSString*)path {
     if ( [self.url.path isEqualToString:path] ) {
         return self;
     }
-    SSFileSystemItem *result = nil;
+    SSDirectory *result = nil;
     for (SSDirectory *subDirectory in self.subDirectories) {
-        result = [subDirectory findSubItemWithPath:path];
+        result = [subDirectory findSubDirectoryWithPath:path];
         if ( result ) {
             return result;
         }

@@ -27,12 +27,13 @@
 
 - (id)initWithImageList:(NSSet *)imageFiles orderByDirectory:(BOOL)orderByDirectory;
 
-- (void)forward:(id)sender;
-
-- (void)back:(id)sender;
-
-- (void)first:(id)sender;
-
-- (void)last:(id)sender;
+- (IBAction)forward:(id)sender;
+- (IBAction)back:(id)sender;
+- (IBAction)first:(id)sender;
+- (IBAction)last:(id)sender;
+- (IBAction)zoomToFit:(id)sender;
+- (IBAction)zoomToActualSize:(id)sender;
+- (IBAction)zoomIn:(id)sender;
+- (IBAction)zoomOut:(id)sender;
 
 @end

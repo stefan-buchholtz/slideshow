@@ -10,13 +10,15 @@
 
 #import "SSImageBrowserItem.h"
 
+#import "SSDirectory.h"
 #import "SSFile.h"
 
 @implementation SSImageBrowserItem
 
-- (id)initWithFile:(SSFile*)file {
+- (id)initWithFile:(SSFileSystemItem*)file {
     if ( self = [super init] ) {
         self.file = file;
+        _isImage = [file isKindOfClass:[SSFile class]];
     }
     return self;
 }
@@ -26,11 +28,11 @@
 }
 
 - (NSString *) imageRepresentationType {
-    return IKImageBrowserNSURLRepresentationType;
+    return _isImage ? IKImageBrowserNSURLRepresentationType : IKImageBrowserNSImageRepresentationType;
 }
 
 - (id)imageRepresentation {
-    return self.file.url;
+    return _isImage ? self.file.url : [[NSWorkspace sharedWorkspace] iconForFileType:(__bridge NSString*)kUTTypeDirectory];
 }
 
 - (NSString *) imageTitle {

@@ -54,7 +54,7 @@
         [self.imageView zoomOut:self];
     } else if ( [characters isEqualToString:@"0"] ) {
         [self.imageView zoomToActualSize:self];
-    } else if ( [characters isEqualToString:@"="] ) {
+    } else if ( [characters isEqualToString:@"="] || [characters isEqualToString:@"9"] ) {
         [self.imageView zoomToFit:self];
     } else if ( [characters isEqualToString:@"q"] ) {
         [self.window close];
@@ -104,30 +104,46 @@
     }
 }
 
-#pragma mark public methods
-- (void)forward:(id)sender {
+#pragma mark actions
+- (IBAction)forward:(id)sender {
     self.position = self.position + 1;
 }
 
-- (void)back:(id)sender {
+- (IBAction)back:(id)sender {
     self.position = self.position - 1;
 }
 
-- (void)first:(id)sender {
+- (IBAction)first:(id)sender {
     self.position = 0;
 }
 
-- (void)last:(id)sender {
+- (IBAction)last:(id)sender {
     self.position = imageCount - 1;
+}
+
+- (IBAction)zoomToFit:(id)sender {
+    [_imageView zoomToFit:self];
+}
+
+- (IBAction)zoomToActualSize:(id)sender {
+    [_imageView zoomToActualSize:self];
+}
+
+- (IBAction)zoomIn:(id)sender {
+    [_imageView zoomIn:self];
+}
+
+- (IBAction)zoomOut:(id)sender {
+    [_imageView zoomOut:self];
 }
 
 #pragma mark private methods
 - (NSArray*)sortImageList:(NSSet*)imageFiles orderByDirectory:(BOOL)orderByDirectory {
     NSArray *imageList = [imageFiles allObjects];
     if ( orderByDirectory ) {
-        imageList = [imageList sortedArrayWithKey:@"fullName" ascending:YES];
+        imageList = [imageList naturallySortedArrayWithKey:@"fullName" ascending:YES];
     } else {
-        imageList = [imageList sortedArrayWithKey:@"name" ascending:YES];
+        imageList = [imageList naturallySortedArrayWithKey:@"name" ascending:YES];
     }
     
     return imageList;

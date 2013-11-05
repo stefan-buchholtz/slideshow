@@ -15,7 +15,9 @@
     NSArray *imageItems;
 }
 
-@property (nonatomic, strong) SSDirectory *directory;
+@property (nonatomic, strong) NSArray   *directories;
+@property (nonatomic, assign) BOOL      showImagesInSubDirectories;
+@property (nonatomic, assign) BOOL      sortOrderByDirectory;
 
 @property (weak) IBOutlet IKImageBrowserView *imageBrowser;
 

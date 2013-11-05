@@ -10,6 +10,8 @@
 
 @interface NSArray (SortedArrayUsingKey)
 
+- (NSArray*)naturallySortedArrayWithKey:(NSString *)key ascending:(BOOL)ascending;
+
 - (NSArray*)sortedArrayWithKey:(NSString *)key ascending:(BOOL)ascending;
 
 - (NSArray*)sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor;

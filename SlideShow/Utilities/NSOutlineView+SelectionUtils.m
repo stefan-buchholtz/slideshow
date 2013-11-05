@@ -10,6 +10,19 @@
 
 @implementation NSOutlineView (SelectionUtils)
 
+- (id)selectedItem {
+    return [self itemAtRow:[self selectedRow]];
+}
+
+- (NSArray*)selectedItems {
+    NSIndexSet *selectedRowIndexes = self.selectedRowIndexes;
+    NSMutableArray *selectedItems = [[NSMutableArray alloc] initWithCapacity:selectedRowIndexes.count];
+    [selectedRowIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        [selectedItems addObject:[self itemAtRow:idx]];
+    }];
+    return selectedItems;
+}
+
 - (void)selectItem:(id)item {
     [self selectItems:@[item]];
 }

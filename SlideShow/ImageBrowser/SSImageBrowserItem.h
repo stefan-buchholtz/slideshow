@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class SSFileSystemItem;
 @class SSFile;
 
 @interface SSImageBrowserItem : NSObject
 
-@property (strong) SSFile *file;
+@property (strong) SSFileSystemItem *file;
+@property (readonly) BOOL           isImage;
 
-- (id)initWithFile:(SSFile*)file;
+- (id)initWithFile:(SSFileSystemItem*)file;
 
 - (NSString *)imageUID;
 

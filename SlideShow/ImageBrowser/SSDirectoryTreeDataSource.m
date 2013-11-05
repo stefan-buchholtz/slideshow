@@ -9,6 +9,7 @@
 #import "SSDirectoryTreeDataSource.h"
 
 #import "SSDirectory.h"
+#import "NSArray+SortedArrayWithKey.h"
 
 @interface SSDirectoryTreeDataSource ()
 
@@ -61,7 +62,7 @@
 - (NSArray*)sortedEntriesForDirectory:(SSDirectory*)directory {
     NSArray *result = [sortedEntries objectForKey:directory];
     if ( result == nil ) {
-        result = [[directory.subDirectories allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        result = [[directory.subDirectories allObjects] naturallySortedArrayWithKey:@"name" ascending:YES];
         [sortedEntries setObject:result forKey:directory];
     }
     return result;

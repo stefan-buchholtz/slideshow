@@ -23,6 +23,6 @@
 
 - (NSSet*)allFiles;
 
-- (SSFileSystemItem*)findSubItemWithPath:(NSString*)path;
+- (SSDirectory*)findSubDirectoryWithPath:(NSString*)path;
 
 @end

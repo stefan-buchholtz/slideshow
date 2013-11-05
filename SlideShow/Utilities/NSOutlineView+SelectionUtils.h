@@ -10,6 +10,10 @@
 
 @interface NSOutlineView (SelectionUtils)
 
+- (id)selectedItem;
+
+- (NSArray*)selectedItems;
+
 - (void)selectItem:(id)item;
 
 - (void)selectItems:(NSArray*)items;

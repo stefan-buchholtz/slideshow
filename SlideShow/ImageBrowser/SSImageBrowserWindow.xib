@@ -39,7 +39,7 @@
                                     <rect key="frame" x="1" y="1" width="290" height="465"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" autosaveName="imageBrowserDirectoryTreeView" viewBased="YES" indentationPerLevel="16" autosaveExpandedItems="YES" outlineTableColumn="ci3-5B-ENZ" id="vab-dy-Sb8">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" autosaveName="imageBrowserDirectoryTreeView" viewBased="YES" indentationPerLevel="16" outlineTableColumn="ci3-5B-ENZ" id="vab-dy-Sb8">
                                             <rect key="frame" x="0.0" y="0.0" width="290" height="465"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -153,7 +153,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="15M-jd-sBX">
-                                    <rect key="frame" x="200" y="1" width="15" height="465"/>
+                                    <rect key="frame" x="199" y="1" width="16" height="465"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -172,7 +172,7 @@
                     <constraint firstAttribute="bottom" secondItem="9oc-45-7sN" secondAttribute="bottom" id="SeB-7x-bxD"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="4489513C-4C77-45D8-932E-4A724672C936" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="ElI-EI-fnS">
+            <toolbar key="toolbar" implicitIdentifier="4489513C-4C77-45D8-932E-4A724672C936" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="ElI-EI-fnS">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="0A313789-27AA-4DFA-B9B4-13985264A843" explicitItemIdentifier="imageBrowserThumbnailSizeSlider" label="Thumbnail size" paletteLabel="Thumbnail size" id="aU4-6A-XXU">
                         <nil key="toolTip"/>

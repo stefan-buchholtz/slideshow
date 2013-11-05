@@ -18,19 +18,22 @@ static NSString *const ID_IMAGE_BROWSER = @"imageBrowser";
 @class SSImageView;
 
 @interface SSImageBrowserWindow : NSWindowController <NSWindowDelegate, NSToolbarDelegate> {
-    SSDirectory                 *selectedDirectory;
+    BOOL                        displayingImage;
+    NSArray                     *selectedDirectories;
     SSDirectoryTreeDataSource   *directoryTreeDataSource;
     NSOperationQueue            *backgroundTaskQueue;
     NSInvocationOperation       *loadDirectoryTreeOperation;
-    NSString                    *_treeViewSelectionPath;
+    NSArray                     *_treeViewSelectionPaths;
 }
 
 @property (weak) SSWindowManager *manager;
 
 @property (strong) SSDirectory          *baseDirectory;
 @property (nonatomic, strong) NSURL     *baseDirectoryURL;
+@property (nonatomic, strong) NSArray   *treeViewSelectionPaths;
 @property (nonatomic, assign) float     thumbnailZoom;
-@property (nonatomic, strong) NSString  *treeViewSelectionPath;
+@property (nonatomic, assign) BOOL      showImagesInSubDirectories;
+@property (nonatomic, assign) BOOL      sortOrderByDirectory;
 
 @property (strong) IBOutlet SSImageBrowserDataSource    *imageBrowserDataSource;
 @property (weak) IBOutlet NSOutlineView                 *directoryTreeView;
@@ -48,7 +51,17 @@ static NSString *const ID_IMAGE_BROWSER = @"imageBrowser";
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification;
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 
+// actions
 - (IBAction)clickedZoomButton:(id)sender;
+- (IBAction)zoomToFit:(id)sender;
+- (IBAction)zoomToActualSize:(id)sender;
+- (IBAction)zoomIn:(id)sender;
+- (IBAction)zoomOut:(id)sender;
 - (IBAction)startSlideshow:(id)sender;
+- (IBAction)showToolbarIcons:(id)sender;
+- (IBAction)showToolbarText:(id)sender;
+- (IBAction)showToolbarIconsAndText:(id)sender;
+- (IBAction)toggleSortByFolder:(id)sender;
+- (IBAction)toggleShowImagesInSubFolders:(id)sender;
 
 @end
