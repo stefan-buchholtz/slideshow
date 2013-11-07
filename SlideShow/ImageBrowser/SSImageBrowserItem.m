@@ -28,11 +28,11 @@
 }
 
 - (NSString *) imageRepresentationType {
-    return _isImage ? IKImageBrowserNSURLRepresentationType : IKImageBrowserNSImageRepresentationType;
+    return IKImageBrowserNSImageRepresentationType;
 }
 
 - (id)imageRepresentation {
-    return _isImage ? self.file.url : [[NSWorkspace sharedWorkspace] iconForFileType:(__bridge NSString*)kUTTypeDirectory];
+    return _isImage ? [[NSImage alloc] initWithContentsOfURL:self.file.url] : [[NSWorkspace sharedWorkspace] iconForFileType:(__bridge NSString*)kUTTypeDirectory];
 }
 
 - (NSString *) imageTitle {
