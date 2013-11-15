@@ -73,7 +73,7 @@
                     <textField appearanceType="lightContent" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Fb-tu-km9">
                         <rect key="frame" x="2" y="0.0" width="595" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Name" usesSingleLineMode="YES" id="knL-2P-XX8">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Name" usesSingleLineMode="YES" id="knL-2P-XX8">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -85,7 +85,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="GQe-KZ-5sV"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="100%" usesSingleLineMode="YES" id="TFd-cy-TkA">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="right" title="100%" usesSingleLineMode="YES" id="TFd-cy-TkA">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0 %" negativeFormat="#,##0 %" numberStyle="percent" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="0" maximumFractionDigits="0" decimalSeparator="," groupingSeparator="." currencyDecimalSeparator="," positiveSuffix=" %" negativeSuffix=" %" id="lpE-eo-mKc">
                                 <integer key="multiplier" value="100"/>
                                 <real key="roundingIncrement" value="0.0"/>

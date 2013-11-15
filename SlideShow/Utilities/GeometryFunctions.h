@@ -11,6 +11,20 @@
 
 #import <Foundation/Foundation.h>
 
+struct IntegralSize {
+    NSUInteger width;
+    NSUInteger height;
+};
+typedef struct  IntegralSize  IntegralSize;
+
+IntegralSize MakeIntegralSize(NSUInteger width, NSUInteger height);
+
+IntegralSize MaxIntegralSize(IntegralSize s1, IntegralSize s2);
+
+NSSize IntegralSizeToNSSize(IntegralSize size);
+
+IntegralSize NSSizeToIntegralSize(NSSize size);
+
 NSSize MaxSize(NSSize s1, NSSize s2);
 
 #endif

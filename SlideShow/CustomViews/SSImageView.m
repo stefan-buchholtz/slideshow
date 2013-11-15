@@ -165,7 +165,7 @@ typedef enum {
 
 - (void)loadImage {
     if ( _image ) {
-        imageSize = [_image sizeInPixels];
+        imageSize = IntegralSizeToNSSize([_image sizeInPixels]);
         if ( isZoomedToFit ) {
             [self calculateZoomToFit];
         }

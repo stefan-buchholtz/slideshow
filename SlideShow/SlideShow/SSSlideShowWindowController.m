@@ -157,7 +157,7 @@
     if ( _position >= 0 && _position < imageCount ) {
         SSFile *imageFile = [self.imageList objectAtIndex:_position];
         self.imageView.imageURL = imageFile.url;
-        self.imageNameField.stringValue = imageFile.name;
+        self.imageNameField.stringValue = [NSString stringWithFormat:@"%d/%d %@", _position + 1, imageCount, imageFile.name];
     }
 }
 

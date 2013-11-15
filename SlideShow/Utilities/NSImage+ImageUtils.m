@@ -10,6 +10,21 @@
 
 @implementation NSImage (ImageUtils)
 
+- (NSBitmapImageRep*)largestBitmap {
+    long maxPixelCount = 0;
+    NSBitmapImageRep *largest = nil;
+    for (NSImageRep *imageRep in [self representations]) {
+        if ( [imageRep isKindOfClass:[NSBitmapImageRep class]] ) {
+            long pixelCount = (long)imageRep.pixelsHigh * (long)imageRep.pixelsWide;
+            if ( pixelCount > maxPixelCount || largest == nil ) {
+                maxPixelCount = pixelCount;
+                largest = (NSBitmapImageRep*)imageRep;
+            }
+        }
+    }
+    return largest;
+}
+
 - (NSImageRep*)largestImageRep {
     long maxPixelCount = 0;
     NSImageRep *largest = nil;
@@ -23,9 +38,9 @@
     return largest;
 }
 
-- (NSSize)sizeInPixels {
+- (IntegralSize)sizeInPixels {
     NSImageRep *largestImageRep = [self largestImageRep];
-    return NSMakeSize(largestImageRep.pixelsWide, largestImageRep.pixelsHigh);
+    return MakeIntegralSize(largestImageRep.pixelsWide, largestImageRep.pixelsHigh);
 }
 
 @end

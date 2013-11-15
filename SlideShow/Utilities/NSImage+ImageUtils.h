@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "GeometryFunctions.h"
+
 @interface NSImage (ImageUtils)
+
+- (NSBitmapImageRep*)largestBitmap;
 
 - (NSImageRep*)largestImageRep;
 
-- (NSSize)sizeInPixels;
+- (IntegralSize)sizeInPixels;
 
 @end
