@@ -8,9 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+typedef enum {
+    CUSTOM, TO_FIT, ACTUAL_SZIZE_OR_FIT
+} ZoomState;
+
 @interface SSImageView : NSView {
     NSSize              imageSize;
-    BOOL                isZoomedToFit;
+    ZoomState           zoomState;
 }
 
 @property (nonatomic, strong) NSImage   *image;
@@ -29,5 +33,7 @@
 - (void)zoomOut:(id)sender;
 
 - (void)zoomToActualSize:(id)sender;
+
+- (void)zoomToActualSizeOrFit:(id)sender;
 
 @end

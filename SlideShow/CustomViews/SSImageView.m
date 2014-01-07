@@ -84,24 +84,28 @@ typedef enum {
 
 #pragma mark public methods
 - (void)zoomToFit:(id)sender {
-    isZoomedToFit = YES;
+    zoomState = TO_FIT;
     [self calculateZoomToFit];
-    [self setNeedsDisplay:YES];
 }
 
 - (void)zoomIn:(id)sender {
-    isZoomedToFit = NO;
+    zoomState = CUSTOM;
     self.zoomFactor *= 1.5;
 }
 
 - (void)zoomOut:(id)sender {
-    isZoomedToFit = NO;
+    zoomState = CUSTOM;
     self.zoomFactor *= 2.0 / 3.0;
 }
 
 - (void)zoomToActualSize:(id)sender {
-    isZoomedToFit = NO;
+    zoomState = CUSTOM;
     self.zoomFactor = 1.0;
+}
+
+- (void)zoomToActualSizeOrFit:(id)sender {
+    zoomState = ACTUAL_SZIZE_OR_FIT;
+    [self calculateZoomToFit];
 }
 
 - (void)scrollToBeginningOfDocument:(id)sender {
@@ -156,7 +160,7 @@ typedef enum {
 #pragma mark private methods
 - (void)didInit {
     _zoomFactor = 1.0;
-    isZoomedToFit = YES;
+    zoomState = TO_FIT;
     NSView *scrollView = [self findSuperiorScrollView];
     if ( scrollView ) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(frameDidChange:) name:NSViewFrameDidChangeNotification object:scrollView];
@@ -166,7 +170,7 @@ typedef enum {
 - (void)loadImage {
     if ( _image ) {
         imageSize = IntegralSizeToNSSize([_image sizeInPixels]);
-        if ( isZoomedToFit ) {
+        if ( zoomState != CUSTOM ) {
             [self calculateZoomToFit];
         }
         [self updateViewSize];
@@ -198,6 +202,9 @@ typedef enum {
             float yFactor = viewSize.height / imageSize.height;
             factor = xFactor > yFactor ? yFactor : xFactor;
         }
+        if ( zoomState == ACTUAL_SZIZE_OR_FIT && factor < 1.0 ) {
+            factor = 1.0;
+        }
     }
     self.zoomFactor = factor;
 }
@@ -219,7 +226,7 @@ typedef enum {
 }
 
 - (void)frameDidChange:(NSNotification*)notification {
-    if ( isZoomedToFit ) {
+    if ( zoomState != CUSTOM ) {
         [self zoomToFit:self];
     }
 }

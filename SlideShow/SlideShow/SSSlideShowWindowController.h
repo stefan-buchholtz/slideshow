@@ -36,6 +36,7 @@
 - (IBAction)last:(id)sender;
 - (IBAction)zoomToFit:(id)sender;
 - (IBAction)zoomToActualSize:(id)sender;
+- (IBAction)zoomToActualSizeOrFit:(id)sender;
 - (IBAction)zoomIn:(id)sender;
 - (IBAction)zoomOut:(id)sender;
 

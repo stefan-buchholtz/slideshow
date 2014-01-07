@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlideShow/CustomViews/SSImageView.m"
-            timestampString = "405286712.161394"
+            timestampString = "410788994.687474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-didInit"
             landmarkType = "5">
          </BreakpointContent>
@@ -77,7 +77,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "-imageRepresentationType"
+            landmarkName = "-imageRepresentation"
             landmarkType = "5">
             <Actions>
                <BreakpointActionProxy

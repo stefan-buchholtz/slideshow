@@ -53,13 +53,15 @@
 - (void)keyDown:(NSEvent *)theEvent {
     NSString *characters = [[theEvent characters] lowercaseString];
     if ( [characters isEqualToString:@"+"] ) {
-        [self.imageView zoomIn:self];
+        [self zoomIn:self];
     } else if ( [characters isEqualToString:@"-"] ) {
-        [self.imageView zoomOut:self];
+        [self zoomOut:self];
     } else if ( [characters isEqualToString:@"0"] ) {
-        [self.imageView zoomToActualSize:self];
+        [self zoomToActualSize:self];
     } else if ( [characters isEqualToString:@"="] || [characters isEqualToString:@"9"] ) {
-        [self.imageView zoomToFit:self];
+        [self zoomToActualSizeOrFit:self];
+    } else if ( [characters isEqualToString:@"="] || [characters isEqualToString:@"8"] ) {
+        [self zoomToFit:self];
     } else if ( [characters isEqualToString:@"q"] ) {
         [self.window close];
     } else {
@@ -131,6 +133,10 @@
 
 - (IBAction)zoomToActualSize:(id)sender {
     [_imageView zoomToActualSize:self];
+}
+
+- (IBAction)zoomToActualSizeOrFit:(id)sender {
+    [_imageView zoomToActualSizeOrFit:self];
 }
 
 - (IBAction)zoomIn:(id)sender {

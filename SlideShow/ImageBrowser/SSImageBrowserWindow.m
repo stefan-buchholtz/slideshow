@@ -93,6 +93,10 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     self.directoryContentsView.allowsDroppingOnItems = NO;
     
     self.imageView.backgroundColor = [NSColor whiteColor];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.sortOrderByDirectory = [defaults boolForKey:@"sortOrderByDirectory"];
+    self.showImagesInSubDirectories = [defaults boolForKey:@"showImagesInSubDirectories"];
 }
 
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)item {
@@ -385,6 +389,7 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     if ( _showImagesInSubDirectories != showImagesInSubDirectories ) {
         _showImagesInSubDirectories = showImagesInSubDirectories;
         _imageBrowserDataSource.showImagesInSubDirectories = showImagesInSubDirectories;
+        [[NSUserDefaults standardUserDefaults] setBool:showImagesInSubDirectories forKey:@"showImagesInSubDirectories"];
     }
 }
 
@@ -392,6 +397,7 @@ NSString *const TOOLBARITEM_PROGRESS_INDICATOR = @"progressIndicator";
     if ( _sortOrderByDirectory != sortOrderByDirectory ) {
         _sortOrderByDirectory = sortOrderByDirectory;
         _imageBrowserDataSource.sortOrderByDirectory = sortOrderByDirectory;
+        [[NSUserDefaults standardUserDefaults] setBool:sortOrderByDirectory forKey:@"sortOrderByDirectory"];
     }
 }
 
